@@ -16,6 +16,8 @@
 		2FD317602899F7D300882863 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3175F2899F7D300882863 /* .gitignore */; };
 		2FD317622899F83E00882863 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD317612899F83E00882863 /* SearchViewController.swift */; };
 		2FD317642899F88D00882863 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD317632899F88D00882863 /* APIKey.swift */; };
+		2FD317682899FAAE00882863 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD317672899FAAE00882863 /* Example.swift */; };
+		2FD3176B2899FACC00882863 /* Example2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3176A2899FACC00882863 /* Example2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		2FD3175F2899F7D300882863 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2FD317612899F83E00882863 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		2FD317632899F88D00882863 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		2FD317672899FAAE00882863 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		2FD3176A2899FACC00882863 /* Example2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 		2FD3174A2899F6C200882863 /* SeSACTMDBProject */ = {
 			isa = PBXGroup;
 			children = (
+				2FD317662899FA9700882863 /* Key */,
+				2FD317692899FABA00882863 /* Resource */,
 				2FD3174B2899F6C200882863 /* AppDelegate.swift */,
 				2FD3174D2899F6C200882863 /* SceneDelegate.swift */,
 				2FD3174F2899F6C200882863 /* ViewController.swift */,
@@ -74,6 +80,22 @@
 				2FD317632899F88D00882863 /* APIKey.swift */,
 			);
 			path = SeSACTMDBProject;
+			sourceTree = "<group>";
+		};
+		2FD317662899FA9700882863 /* Key */ = {
+			isa = PBXGroup;
+			children = (
+				2FD317672899FAAE00882863 /* Example.swift */,
+			);
+			path = Key;
+			sourceTree = "<group>";
+		};
+		2FD317692899FABA00882863 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2FD3176A2899FACC00882863 /* Example2.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +172,8 @@
 			files = (
 				2FD317502899F6C200882863 /* ViewController.swift in Sources */,
 				2FD3174C2899F6C200882863 /* AppDelegate.swift in Sources */,
+				2FD317682899FAAE00882863 /* Example.swift in Sources */,
+				2FD3176B2899FACC00882863 /* Example2.swift in Sources */,
 				2FD317622899F83E00882863 /* SearchViewController.swift in Sources */,
 				2FD3174E2899F6C200882863 /* SceneDelegate.swift in Sources */,
 				2FD317642899F88D00882863 /* APIKey.swift in Sources */,

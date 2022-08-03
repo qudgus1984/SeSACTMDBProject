@@ -18,6 +18,9 @@
 		2FD317642899F88D00882863 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD317632899F88D00882863 /* APIKey.swift */; };
 		2FD317682899FAAE00882863 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD317672899FAAE00882863 /* Example.swift */; };
 		2FD3176B2899FACC00882863 /* Example2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3176A2899FACC00882863 /* Example2.swift */; };
+		2FD31770289ACF8B00882863 /* TMDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3176F289ACF8B00882863 /* TMDB.storyboard */; };
+		2FD31776289AD97200882863 /* TMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD31775289AD97200882863 /* TMDBViewController.swift */; };
+		2FD31778289ADAE400882863 /* TMDBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD31777289ADAE400882863 /* TMDBCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		2FD317632899F88D00882863 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		2FD317672899FAAE00882863 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		2FD3176A2899FACC00882863 /* Example2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2.swift; sourceTree = "<group>"; };
+		2FD3176F289ACF8B00882863 /* TMDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TMDB.storyboard; sourceTree = "<group>"; };
+		2FD31775289AD97200882863 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
+		2FD31777289ADAE400882863 /* TMDBCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 		2FD3174A2899F6C200882863 /* SeSACTMDBProject */ = {
 			isa = PBXGroup;
 			children = (
+				2FD3176E289ACF7400882863 /* TMDB */,
 				2FD317662899FA9700882863 /* Key */,
 				2FD317692899FABA00882863 /* Resource */,
 				2FD3174B2899F6C200882863 /* AppDelegate.swift */,
@@ -96,6 +103,16 @@
 				2FD3176A2899FACC00882863 /* Example2.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		2FD3176E289ACF7400882863 /* TMDB */ = {
+			isa = PBXGroup;
+			children = (
+				2FD3176F289ACF8B00882863 /* TMDB.storyboard */,
+				2FD31775289AD97200882863 /* TMDBViewController.swift */,
+				2FD31777289ADAE400882863 /* TMDBCollectionViewCell.swift */,
+			);
+			path = TMDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FD31770289ACF8B00882863 /* TMDB.storyboard in Resources */,
 				2FD317602899F7D300882863 /* .gitignore in Resources */,
 				2FD317582899F6C200882863 /* LaunchScreen.storyboard in Resources */,
 				2FD317552899F6C200882863 /* Assets.xcassets in Resources */,
@@ -171,10 +189,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FD317502899F6C200882863 /* ViewController.swift in Sources */,
+				2FD31776289AD97200882863 /* TMDBViewController.swift in Sources */,
 				2FD3174C2899F6C200882863 /* AppDelegate.swift in Sources */,
 				2FD317682899FAAE00882863 /* Example.swift in Sources */,
 				2FD3176B2899FACC00882863 /* Example2.swift in Sources */,
 				2FD317622899F83E00882863 /* SearchViewController.swift in Sources */,
+				2FD31778289ADAE400882863 /* TMDBCollectionViewCell.swift in Sources */,
 				2FD3174E2899F6C200882863 /* SceneDelegate.swift in Sources */,
 				2FD317642899F88D00882863 /* APIKey.swift in Sources */,
 			);

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FAE3390289B9A7000C6E131 /* TMDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FAE338F289B9A7000C6E131 /* TMDB.storyboard */; };
+		2FAE3392289B9C1600C6E131 /* TMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3391289B9C1600C6E131 /* TMDBViewController.swift */; };
+		2FAE3395289B9C3300C6E131 /* TMDBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3393289B9C3300C6E131 /* TMDBCollectionViewCell.swift */; };
+		2FAE3396289B9C3300C6E131 /* TMDBCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FAE3394289B9C3300C6E131 /* TMDBCollectionViewCell.xib */; };
+		2FAE339E289BA69A00C6E131 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE339D289BA69A00C6E131 /* Kingfisher */; };
+		2FAE33A1289BA6BB00C6E131 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE33A0289BA6BB00C6E131 /* SwiftyJSON */; };
+		2FAE33A4289BA6E100C6E131 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE33A3289BA6E100C6E131 /* Alamofire */; };
+		2FAE33A7289BA70F00C6E131 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2FAE33A6289BA70F00C6E131 /* JGProgressHUD */; };
+		2FAE33A9289BA77400C6E131 /* TMDBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE33A8289BA77400C6E131 /* TMDBData.swift */; };
 		2FD3174C2899F6C200882863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3174B2899F6C200882863 /* AppDelegate.swift */; };
 		2FD3174E2899F6C200882863 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3174D2899F6C200882863 /* SceneDelegate.swift */; };
 		2FD317502899F6C200882863 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3174F2899F6C200882863 /* ViewController.swift */; };
@@ -15,15 +24,16 @@
 		2FD317582899F6C200882863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD317562899F6C200882863 /* LaunchScreen.storyboard */; };
 		2FD317602899F7D300882863 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3175F2899F7D300882863 /* .gitignore */; };
 		2FD317622899F83E00882863 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD317612899F83E00882863 /* SearchViewController.swift */; };
-		2FD317642899F88D00882863 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD317632899F88D00882863 /* APIKey.swift */; };
-		2FD317682899FAAE00882863 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD317672899FAAE00882863 /* Example.swift */; };
+		2FD317682899FAAE00882863 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD317672899FAAE00882863 /* Key.swift */; };
 		2FD3176B2899FACC00882863 /* Example2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3176A2899FACC00882863 /* Example2.swift */; };
-		2FD31770289ACF8B00882863 /* TMDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FD3176F289ACF8B00882863 /* TMDB.storyboard */; };
-		2FD31776289AD97200882863 /* TMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD31775289AD97200882863 /* TMDBViewController.swift */; };
-		2FD31778289ADAE400882863 /* TMDBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD31777289ADAE400882863 /* TMDBCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FAE338F289B9A7000C6E131 /* TMDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TMDB.storyboard; sourceTree = "<group>"; };
+		2FAE3391289B9C1600C6E131 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
+		2FAE3393289B9C3300C6E131 /* TMDBCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FAE3394289B9C3300C6E131 /* TMDBCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TMDBCollectionViewCell.xib; sourceTree = "<group>"; };
+		2FAE33A8289BA77400C6E131 /* TMDBData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBData.swift; sourceTree = "<group>"; };
 		2FD317482899F6C200882863 /* SeSACTMDBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACTMDBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD3174B2899F6C200882863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FD3174D2899F6C200882863 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,12 +44,8 @@
 		2FD317592899F6C200882863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FD3175F2899F7D300882863 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2FD317612899F83E00882863 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		2FD317632899F88D00882863 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
-		2FD317672899FAAE00882863 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
+		2FD317672899FAAE00882863 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		2FD3176A2899FACC00882863 /* Example2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2.swift; sourceTree = "<group>"; };
-		2FD3176F289ACF8B00882863 /* TMDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TMDB.storyboard; sourceTree = "<group>"; };
-		2FD31775289AD97200882863 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
-		2FD31777289ADAE400882863 /* TMDBCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAE33A7289BA70F00C6E131 /* JGProgressHUD in Frameworks */,
+				2FAE33A4289BA6E100C6E131 /* Alamofire in Frameworks */,
+				2FAE33A1289BA6BB00C6E131 /* SwiftyJSON in Frameworks */,
+				2FAE339E289BA69A00C6E131 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +94,6 @@
 				2FD317562899F6C200882863 /* LaunchScreen.storyboard */,
 				2FD317592899F6C200882863 /* Info.plist */,
 				2FD317612899F83E00882863 /* SearchViewController.swift */,
-				2FD317632899F88D00882863 /* APIKey.swift */,
 			);
 			path = SeSACTMDBProject;
 			sourceTree = "<group>";
@@ -92,7 +101,7 @@
 		2FD317662899FA9700882863 /* Key */ = {
 			isa = PBXGroup;
 			children = (
-				2FD317672899FAAE00882863 /* Example.swift */,
+				2FD317672899FAAE00882863 /* Key.swift */,
 			);
 			path = Key;
 			sourceTree = "<group>";
@@ -108,9 +117,11 @@
 		2FD3176E289ACF7400882863 /* TMDB */ = {
 			isa = PBXGroup;
 			children = (
-				2FD3176F289ACF8B00882863 /* TMDB.storyboard */,
-				2FD31775289AD97200882863 /* TMDBViewController.swift */,
-				2FD31777289ADAE400882863 /* TMDBCollectionViewCell.swift */,
+				2FAE338F289B9A7000C6E131 /* TMDB.storyboard */,
+				2FAE3393289B9C3300C6E131 /* TMDBCollectionViewCell.swift */,
+				2FAE3394289B9C3300C6E131 /* TMDBCollectionViewCell.xib */,
+				2FAE3391289B9C1600C6E131 /* TMDBViewController.swift */,
+				2FAE33A8289BA77400C6E131 /* TMDBData.swift */,
 			);
 			path = TMDB;
 			sourceTree = "<group>";
@@ -131,6 +142,12 @@
 			dependencies = (
 			);
 			name = SeSACTMDBProject;
+			packageProductDependencies = (
+				2FAE339D289BA69A00C6E131 /* Kingfisher */,
+				2FAE33A0289BA6BB00C6E131 /* SwiftyJSON */,
+				2FAE33A3289BA6E100C6E131 /* Alamofire */,
+				2FAE33A6289BA70F00C6E131 /* JGProgressHUD */,
+			);
 			productName = SeSACTMDBProject;
 			productReference = 2FD317482899F6C200882863 /* SeSACTMDBProject.app */;
 			productType = "com.apple.product-type.application";
@@ -159,6 +176,12 @@
 				Base,
 			);
 			mainGroup = 2FD3173F2899F6C200882863;
+			packageReferences = (
+				2FAE339C289BA69A00C6E131 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				2FAE339F289BA6BB00C6E131 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				2FAE33A2289BA6E100C6E131 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				2FAE33A5289BA70F00C6E131 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+			);
 			productRefGroup = 2FD317492899F6C200882863 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -173,11 +196,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD31770289ACF8B00882863 /* TMDB.storyboard in Resources */,
 				2FD317602899F7D300882863 /* .gitignore in Resources */,
 				2FD317582899F6C200882863 /* LaunchScreen.storyboard in Resources */,
 				2FD317552899F6C200882863 /* Assets.xcassets in Resources */,
+				2FAE3396289B9C3300C6E131 /* TMDBCollectionViewCell.xib in Resources */,
 				2FD317532899F6C200882863 /* Main.storyboard in Resources */,
+				2FAE3390289B9A7000C6E131 /* TMDB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +213,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FD317502899F6C200882863 /* ViewController.swift in Sources */,
-				2FD31776289AD97200882863 /* TMDBViewController.swift in Sources */,
+				2FAE3392289B9C1600C6E131 /* TMDBViewController.swift in Sources */,
+				2FAE33A9289BA77400C6E131 /* TMDBData.swift in Sources */,
 				2FD3174C2899F6C200882863 /* AppDelegate.swift in Sources */,
-				2FD317682899FAAE00882863 /* Example.swift in Sources */,
+				2FD317682899FAAE00882863 /* Key.swift in Sources */,
 				2FD3176B2899FACC00882863 /* Example2.swift in Sources */,
 				2FD317622899F83E00882863 /* SearchViewController.swift in Sources */,
-				2FD31778289ADAE400882863 /* TMDBCollectionViewCell.swift in Sources */,
+				2FAE3395289B9C3300C6E131 /* TMDBCollectionViewCell.swift in Sources */,
 				2FD3174E2899F6C200882863 /* SceneDelegate.swift in Sources */,
-				2FD317642899F88D00882863 /* APIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +438,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2FAE339C289BA69A00C6E131 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		2FAE339F289BA6BB00C6E131 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		2FAE33A2289BA6E100C6E131 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		2FAE33A5289BA70F00C6E131 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2FAE339D289BA69A00C6E131 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAE339C289BA69A00C6E131 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		2FAE33A0289BA6BB00C6E131 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAE339F289BA6BB00C6E131 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		2FAE33A3289BA6E100C6E131 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAE33A2289BA6E100C6E131 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		2FAE33A6289BA70F00C6E131 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FAE33A5289BA70F00C6E131 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2FD317402899F6C200882863 /* Project object */;
 }

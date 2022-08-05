@@ -35,7 +35,7 @@ class TMDBViewController: UIViewController {
         let spacing: CGFloat = 8
         let width = UIScreen.main.bounds.width - (spacing * 2)
         
-        layout.itemSize = CGSize(width: width / 1.1, height: (width / 1.1) * 1.2 )
+        layout.itemSize = CGSize(width: width / 1.1, height: (width / 1.1) * 1.5 )
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumLineSpacing = spacing
@@ -59,8 +59,9 @@ class TMDBViewController: UIViewController {
                     let rate = TMDB["vote_average"].doubleValue
                     let title = TMDB["name"].stringValue
                     let overview = TMDB["overview"].stringValue
+                    let genre = TMDB["genre_ids"][0].intValue
                     
-                    let data = TMDBList(releaseDate: releaseDate, genre: "00", posterImage: imageUrl, rate: rate, title: title, overview: overview)
+                    let data = TMDBList(releaseDate: releaseDate, genre: genre, posterImage: imageUrl, rate: rate, title: title, overview: overview)
 
                     
                         self.list.append(data)
@@ -89,6 +90,4 @@ extension TMDBViewController: UICollectionViewDataSource, UICollectionViewDelega
         item.setData(indexPath: indexPath, list: list)
         return item
     }
-    
-    
 }

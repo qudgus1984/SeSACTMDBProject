@@ -10,6 +10,7 @@ import UIKit
 
 
 class TMDBCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -27,6 +28,8 @@ class TMDBCollectionViewCell: UICollectionViewCell {
         self.rateLabel.text = "\(list[indexPath.row].rate)"
         self.titleNameLabel.text = list[indexPath.row].title
         self.dateLabel.text = list[indexPath.row].releaseDate
+        self.titleLabel.text = TMDBGenre(rawValue: list[indexPath.row].genre)?.comparing
+        self.explainLabel.text = list[indexPath.row].overview
         
         let url = URL(string: list[indexPath.row].posterImage)
         self.posterImageView.kf.setImage(with: url)

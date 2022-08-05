@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="431" height="451"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYs-oA-3Y7">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22/08/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYs-oA-3Y7">
                         <rect key="frame" x="8" y="8" width="415" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="AVE-mN-u6r"/>
@@ -26,7 +26,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmw-I2-LSZ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#미스테리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmw-I2-LSZ">
                         <rect key="frame" x="8" y="40" width="415" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="a4j-FP-K7w"/>
@@ -41,7 +41,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DXl-yu-Yzu">
                                 <rect key="frame" x="0.0" y="0.0" width="415" height="218"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDl-yE-BWE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이정재, 정우성" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDl-yE-BWE">
                                 <rect key="frame" x="16" y="234" width="383" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="vxX-2n-W2R"/>
@@ -84,15 +84,11 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Z36-bk-K6V">
-                                <rect key="frame" x="16" y="181" width="64" height="24"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Z36-bk-K6V">
+                                <rect key="frame" x="0.0" y="194" width="64" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p57-0A-42i">
                                         <rect key="frame" x="0.0" y="0.0" width="32" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="8ZI-ZV-F8W"/>
-                                            <constraint firstAttribute="height" constant="24" id="evq-CH-fEX"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -104,6 +100,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="0qr-rF-jdG"/>
+                                    <constraint firstAttribute="width" constant="64" id="nLB-tb-yXX"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dh-Uu-PHB">
                                 <rect key="frame" x="367" y="327" width="32" height="32"/>
@@ -118,6 +118,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Z36-bk-K6V" firstAttribute="bottom" secondItem="DXl-yu-Yzu" secondAttribute="bottom" id="3Iu-20-2eN"/>
                             <constraint firstItem="QDl-yE-BWE" firstAttribute="top" secondItem="DXl-yu-Yzu" secondAttribute="bottom" constant="16" id="7S3-qQ-iJ8"/>
                             <constraint firstItem="Z0X-j7-AbD" firstAttribute="leading" secondItem="Bqj-tt-FQZ" secondAttribute="leading" constant="16" id="ARU-jN-1d5"/>
                             <constraint firstAttribute="bottom" secondItem="5kz-va-eYr" secondAttribute="bottom" constant="4" id="CPt-oQ-LGl"/>
@@ -137,6 +138,7 @@
                             <constraint firstAttribute="trailing" secondItem="DXl-yu-Yzu" secondAttribute="trailing" id="chl-0q-Y1B"/>
                             <constraint firstItem="xge-Qe-igd" firstAttribute="top" secondItem="Bqj-tt-FQZ" secondAttribute="top" constant="4" id="dIO-xy-HsX"/>
                             <constraint firstItem="6zI-xX-BEF" firstAttribute="top" secondItem="QDl-yE-BWE" secondAttribute="bottom" constant="4" id="ejp-41-2P9"/>
+                            <constraint firstItem="Z36-bk-K6V" firstAttribute="leading" secondItem="DXl-yu-Yzu" secondAttribute="leading" id="hq5-S4-pXZ"/>
                             <constraint firstItem="QDl-yE-BWE" firstAttribute="leading" secondItem="Bqj-tt-FQZ" secondAttribute="leading" constant="16" id="jrV-8M-CSz"/>
                             <constraint firstAttribute="trailing" secondItem="xge-Qe-igd" secondAttribute="trailing" constant="4" id="m7O-3I-4ie"/>
                             <constraint firstItem="6zI-xX-BEF" firstAttribute="leading" secondItem="Bqj-tt-FQZ" secondAttribute="leading" constant="16" id="oLL-12-Qpl"/>

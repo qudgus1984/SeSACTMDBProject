@@ -12,22 +12,24 @@ import Kingfisher
 import SwiftyJSON
 
 class TMDBViewController: UIViewController {
-
-
+        
     @IBOutlet weak var TMDBCollectionView: UICollectionView!
     
-    var list: [TMDBList] = []
+    static var listStruct: [TMDBList] = []
+    var listStruct2 : [TMDBList] = []
+    var page = 1
+    var totalCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         TMDBCollectionView.register(UINib(nibName: TMDBCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TMDBCollectionViewCell.identifier)
-
+        
+        TMDBCollectionView.prefetchDataSource = self
         TMDBCollectionView.delegate = self
         TMDBCollectionView.dataSource = self
-
+        fetchImage()
         CellLayout()
-        
-        fetchTMDB()
     }
     
     func CellLayout() {
@@ -35,7 +37,7 @@ class TMDBViewController: UIViewController {
         let spacing: CGFloat = 8
         let width = UIScreen.main.bounds.width - (spacing * 2)
         
-        layout.itemSize = CGSize(width: width / 1.1, height: (width / 1.1) * 1.5 )
+        layout.itemSize = CGSize(width: width / 1.1, height: (width / 1.1) * 1.8 )
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         layout.minimumLineSpacing = spacing
@@ -44,50 +46,49 @@ class TMDBViewController: UIViewController {
         TMDBCollectionView.collectionViewLayout = layout
     }
     
-    func fetchTMDB() {
-        let url = EndPoint.TMDBURL + "api_key=\(APIKey.TMDBKey)"
-        
-        AF.request(url, method: .get).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-
-                for TMDB in json["results"].arrayValue {
-                    
-                    let imageUrl = EndPoint.imageURL + TMDB["poster_path"].stringValue
-                    let releaseDate = TMDB["first_air_date"].stringValue
-                    let rate = TMDB["vote_average"].doubleValue
-                    let title = TMDB["name"].stringValue
-                    let overview = TMDB["overview"].stringValue
-                    let genre = TMDB["genre_ids"][0].intValue
-                    
-                    let data = TMDBList(releaseDate: releaseDate, genre: genre, posterImage: imageUrl, rate: rate, title: title, overview: overview)
-
-                    
-                        self.list.append(data)
-                    }
-
-                self.TMDBCollectionView.reloadData()
-                
-                print(self.list)
-                
-            case .failure(let error):
-                print(error)
-            }
-        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Header", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "HeaderViewController") as! HeaderViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func fetchImage() {
+        ImageTMDBAPIManager.shared.fetchTMDB(page: page) { totalCount, list in
+            self.totalCount = totalCount
+            self.listStruct2 = list
+            
+            self.TMDBCollectionView.reloadData()
         }
     }
-}
+    
+    }
+
 extension TMDBViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
+        return TMDBViewController.listStruct.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let item = TMDBCollectionView.dequeueReusableCell(withReuseIdentifier: TMDBCollectionViewCell.identifier, for: indexPath) as? TMDBCollectionViewCell else { return TMDBCollectionViewCell() }
         
-        item.setData(indexPath: indexPath, list: list)
+        item.setData(indexPath: indexPath, list: TMDBViewController.listStruct)
         return item
     }
+}
+
+extension TMDBViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        for indexPath in indexPaths {
+            print(page)
+            print(TMDBViewController.listStruct.count)
+            print(totalCount)
+            if (TMDBViewController.listStruct.count - 1 == indexPath.item)  && (TMDBViewController.listStruct.count < totalCount) {
+                page += 20
+                fetchImage()
+
+            }
+        }
+}
 }

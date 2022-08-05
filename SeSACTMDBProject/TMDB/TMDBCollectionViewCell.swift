@@ -8,7 +8,6 @@
 import UIKit
 
 
-
 class TMDBCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!

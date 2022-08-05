@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct TMDBList {
     
     let releaseDate: String
@@ -17,6 +18,8 @@ struct TMDBList {
     let overview: String
     
 }
+
+
 
 enum TMDBGenre: Int, CaseIterable {
     case id28 = 28

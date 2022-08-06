@@ -19,6 +19,17 @@ struct TMDBList {
     
 }
 
+struct HeaderCast {
+    var name: String
+    var characterName: String
+    var profilePath: String
+    
+    init(name: String, characterName: String, profilePath: String) {
+        self.name = name
+        self.characterName = characterName
+        self.profilePath = profilePath
+    }
+}
 
 
 enum TMDBGenre: Int, CaseIterable {

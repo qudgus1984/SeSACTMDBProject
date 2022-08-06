@@ -1,8 +1,8 @@
 //
-//  ImageTMDBAPIManager.swift
+//  ImageHeaderAPIManager.swift
 //  SeSACTMDBProject
 //
-//  Created by 이병현 on 2022/08/05.
+//  Created by 이병현 on 2022/08/06.
 //
 
 import Foundation
@@ -10,16 +10,15 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-
-class ImageTMDBAPIManager {
+class ImageHeaderAPIManager {
         
-    static let shared = ImageTMDBAPIManager()
+    static let Headershared = SeSACTMDBProject.ImageHeaderAPIManager()
     
     private init() { }
     
     typealias completionHandler = (Int, [TMDBList]) -> Void
     
-    func fetchTMDB(page: Int, completionHandler: @escaping completionHandler ) {
+    func ImageHeaderAPIManager(page: Int, completionHandler: @escaping completionHandler ) {
         let url = EndPoint.TMDBURL + "api_key=\(APIKey.TMDBKey)&page=\(page)"
         
         AF.request(url, method: .get).validate().responseData { [self] response in
@@ -54,3 +53,4 @@ class ImageTMDBAPIManager {
         }
     }
 }
+

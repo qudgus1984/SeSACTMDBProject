@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FACA0B7289E75690066AF89 /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */; };
+		2FACA0B8289E75690066AF89 /* HeaderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */; };
+		2FACA0BB289E958A0066AF89 /* ImageHeaderAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FACA0BA289E958A0066AF89 /* ImageHeaderAPIManager.swift */; };
 		2FAE3390289B9A7000C6E131 /* TMDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FAE338F289B9A7000C6E131 /* TMDB.storyboard */; };
 		2FAE3392289B9C1600C6E131 /* TMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3391289B9C1600C6E131 /* TMDBViewController.swift */; };
 		2FAE3395289B9C3300C6E131 /* TMDBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3393289B9C3300C6E131 /* TMDBCollectionViewCell.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
+		2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCellTableViewCell.xib; sourceTree = "<group>"; };
+		2FACA0BA289E958A0066AF89 /* ImageHeaderAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHeaderAPIManager.swift; sourceTree = "<group>"; };
 		2FAE338F289B9A7000C6E131 /* TMDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TMDB.storyboard; sourceTree = "<group>"; };
 		2FAE3391289B9C1600C6E131 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
 		2FAE3393289B9C3300C6E131 /* TMDBCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -69,11 +75,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FACA0B2289E74DB0066AF89 /* MainTMDB */ = {
+			isa = PBXGroup;
+			children = (
+				2FAE338F289B9A7000C6E131 /* TMDB.storyboard */,
+				2FAE3393289B9C3300C6E131 /* TMDBCollectionViewCell.swift */,
+				2FAE3394289B9C3300C6E131 /* TMDBCollectionViewCell.xib */,
+				2FAE3391289B9C1600C6E131 /* TMDBViewController.swift */,
+			);
+			path = MainTMDB;
+			sourceTree = "<group>";
+		};
+		2FACA0B9289E7E390066AF89 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				2FB57476289D30AD008A7B55 /* ImageTMDBAPIManager.swift */,
+				2FACA0BA289E958A0066AF89 /* ImageHeaderAPIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
 		2FB5746F289D0745008A7B55 /* Header */ = {
 			isa = PBXGroup;
 			children = (
 				2FB57470289D0755008A7B55 /* Header.storyboard */,
 				2FB57474289D09A4008A7B55 /* HeaderViewController.swift */,
+				2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */,
+				2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -132,13 +160,10 @@
 		2FD3176E289ACF7400882863 /* TMDB */ = {
 			isa = PBXGroup;
 			children = (
+				2FACA0B9289E7E390066AF89 /* APIManager */,
+				2FACA0B2289E74DB0066AF89 /* MainTMDB */,
 				2FB5746F289D0745008A7B55 /* Header */,
-				2FAE338F289B9A7000C6E131 /* TMDB.storyboard */,
-				2FAE3393289B9C3300C6E131 /* TMDBCollectionViewCell.swift */,
-				2FAE3394289B9C3300C6E131 /* TMDBCollectionViewCell.xib */,
-				2FAE3391289B9C1600C6E131 /* TMDBViewController.swift */,
 				2FAE33A8289BA77400C6E131 /* TMDBData.swift */,
-				2FB57476289D30AD008A7B55 /* ImageTMDBAPIManager.swift */,
 			);
 			path = TMDB;
 			sourceTree = "<group>";
@@ -213,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FACA0B8289E75690066AF89 /* HeaderCellTableViewCell.xib in Resources */,
 				2FD317602899F7D300882863 /* .gitignore in Resources */,
 				2FD317582899F6C200882863 /* LaunchScreen.storyboard in Resources */,
 				2FD317552899F6C200882863 /* Assets.xcassets in Resources */,
@@ -238,7 +264,9 @@
 				2FD3176B2899FACC00882863 /* Example2.swift in Sources */,
 				2FD317622899F83E00882863 /* SearchViewController.swift in Sources */,
 				2FB57475289D09A4008A7B55 /* HeaderViewController.swift in Sources */,
+				2FACA0B7289E75690066AF89 /* HeaderCellTableViewCell.swift in Sources */,
 				2FB57477289D30AD008A7B55 /* ImageTMDBAPIManager.swift in Sources */,
+				2FACA0BB289E958A0066AF89 /* ImageHeaderAPIManager.swift in Sources */,
 				2FAE3395289B9C3300C6E131 /* TMDBCollectionViewCell.swift in Sources */,
 				2FD3174E2899F6C200882863 /* SceneDelegate.swift in Sources */,
 			);

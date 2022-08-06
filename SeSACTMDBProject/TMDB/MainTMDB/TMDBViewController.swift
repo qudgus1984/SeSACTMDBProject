@@ -19,6 +19,7 @@ class TMDBViewController: UIViewController {
     var listStruct2 : [TMDBList] = []
     var page = 1
     var totalCount = 0
+    static var movieIDChoice : [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,11 +85,16 @@ extension TMDBViewController: UICollectionViewDataSourcePrefetching {
             print(page)
             print(TMDBViewController.listStruct.count)
             print(totalCount)
+            UserDefaults.standard.set(indexPath[1], forKey: "pageNum")
+            print(UserDefaults.standard.integer(forKey: "pageNum"))
+
             if (TMDBViewController.listStruct.count - 1 == indexPath.item)  && (TMDBViewController.listStruct.count < totalCount) {
                 page += 20
                 fetchImage()
 
             }
+//            UserDefaults.standard.set(indexPaths[1], forKey: "page")
+//            print(UserDefaults.standard.integer(forKey: "page"))
         }
 }
 }

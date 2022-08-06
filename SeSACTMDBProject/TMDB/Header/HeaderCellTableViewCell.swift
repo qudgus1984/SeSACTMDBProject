@@ -16,10 +16,10 @@ class HeaderCellTableViewCell: UITableViewCell {
     @IBOutlet weak var charactorLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
+    
 }
 
-func headerCellUI() {
-}
+
 
 
 

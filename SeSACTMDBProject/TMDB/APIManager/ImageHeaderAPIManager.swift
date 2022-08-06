@@ -16,33 +16,30 @@ class ImageHeaderAPIManager {
     
     private init() { }
     
-    typealias completionHandler = (Int, [TMDBList]) -> Void
+    typealias completionHandler = (Int, [HeaderList]) -> Void
     
-    func ImageHeaderAPIManager(page: Int, completionHandler: @escaping completionHandler ) {
+    func ImageHeaderAPIManager(page: Int) {
         let url = EndPoint.TMDBURL + "api_key=\(APIKey.TMDBKey)&page=\(page)"
         
-        AF.request(url, method: .get).validate().responseData { [self] response in
+        AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 
-                for TMDB in json["results"].arrayValue {
+                for Header in json["results"].arrayValue {
                     
-                    let imageUrl = EndPoint.imageURL + TMDB["poster_path"].stringValue
-                    let releaseDate = TMDB["release_date"].stringValue
-                    let rate = TMDB["vote_average"].doubleValue
-                    let title = TMDB["name"].stringValue
-                    let overview = TMDB["overview"].stringValue
-                    let genre = TMDB["genre_ids"][0].intValue
-                    
-                    
-                    let data = TMDBList(releaseDate: releaseDate, genre: genre, posterImage: imageUrl, rate: rate, title: title, overview: overview)
-                    
-                    TMDBViewController.listStruct.append(data)
-                    
-                    let totalCount = json["total_pages"].intValue
+                    let posterImageURL = EndPoint.imageURL + Header["poster_path"].stringValue
+                    let backgroundImageURL = EndPoint.imageURL + Header["backdrop_path"].stringValue
+                    let title = Header["title"].stringValue
 
-                    completionHandler(totalCount, TMDBViewController.listStruct)
+
+                    
+                    
+                    let data = HeaderList(title: title, posterImage: posterImageURL, backgroundImage: backgroundImageURL)
+                    
+                    HeaderViewController.structHeaderList.append(data)
+                    
+
                     
                 }
                 

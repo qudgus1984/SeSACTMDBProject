@@ -52,7 +52,7 @@
                                 <rect key="frame" x="16" y="520" width="382" height="342"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OverView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipr-df-Hfm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipr-df-Hfm">
                                 <rect key="frame" x="16" y="492" width="382" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Ghv-OU-xKM"/>
@@ -96,6 +96,7 @@
                     <connections>
                         <outlet property="HeaderTableView" destination="Nr0-aH-8go" id="9Lt-gG-5lt"/>
                         <outlet property="backgroundImageView" destination="UK2-9P-Za3" id="kNT-Iy-xVt"/>
+                        <outlet property="overViewTextView" destination="Hzh-gn-z1y" id="SKW-zk-yYw"/>
                         <outlet property="posterImageView" destination="iEY-c8-J9d" id="Kpz-98-4ba"/>
                         <outlet property="titleLabel" destination="oGV-qg-LfU" id="xst-DR-Yvt"/>
                     </connections>

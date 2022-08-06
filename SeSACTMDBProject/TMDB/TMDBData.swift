@@ -31,6 +31,12 @@ struct HeaderCast {
     }
 }
 
+struct HeaderList {
+    let title: String
+    let posterImage: String
+    let backgroundImage: String
+}
+
 
 enum TMDBGenre: Int, CaseIterable {
     case id28 = 28

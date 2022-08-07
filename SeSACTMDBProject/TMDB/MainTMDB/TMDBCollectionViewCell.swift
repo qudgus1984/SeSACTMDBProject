@@ -9,6 +9,7 @@ import UIKit
 
 
 class TMDBCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var linkButton: UIButton!
     
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -33,5 +34,7 @@ class TMDBCollectionViewCell: UICollectionViewCell {
         let url = URL(string: list[indexPath.row].posterImage)
         self.posterImageView.kf.setImage(with: url)
         
+
     }
+
 }

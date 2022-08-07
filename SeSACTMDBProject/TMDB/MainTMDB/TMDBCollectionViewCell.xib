@@ -164,6 +164,7 @@
             <connections>
                 <outlet property="dateLabel" destination="OYs-oA-3Y7" id="yMU-DZ-QWx"/>
                 <outlet property="explainLabel" destination="6zI-xX-BEF" id="jV3-Is-D8b"/>
+                <outlet property="linkButton" destination="xge-Qe-igd" id="eTO-1E-6nP"/>
                 <outlet property="posterImageView" destination="DXl-yu-Yzu" id="MzS-hx-6NO"/>
                 <outlet property="rateLabel" destination="O2t-Fr-nAx" id="HGv-Lc-XSi"/>
                 <outlet property="titleLabel" destination="mmw-I2-LSZ" id="Ba6-it-ECo"/>

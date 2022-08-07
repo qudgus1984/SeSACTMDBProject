@@ -12,7 +12,7 @@ import Kingfisher
 import SwiftyJSON
 
 class TMDBViewController: UIViewController {
-        
+    
     @IBOutlet weak var TMDBCollectionView: UICollectionView!
     
     static var listStruct: [TMDBList] = []
@@ -20,6 +20,9 @@ class TMDBViewController: UIViewController {
     var page = 1
     var totalCount = 0
     static var movieIDChoice : [Int] = []
+    
+    var movieLink: String = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +34,14 @@ class TMDBViewController: UIViewController {
         TMDBCollectionView.dataSource = self
         fetchImage()
         CellLayout()
+        
     }
     
+    @objc func moveToYouTube(sender: UIButton) {
+
+        fetchingMovieLinkData(num: TMDBViewController.movieIDChoice[UserDefaults.standard.integer(forKey: "pageNum")-1])
+
+    }
     func CellLayout() {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 8
@@ -62,7 +71,27 @@ class TMDBViewController: UIViewController {
         }
     }
     
-    }
+    func fetchingMovieLinkData(num : Int) {
+               
+               SearchingYouTubeManager.shared.fetchingMovieLinkData(movieID: num) { link in
+                   
+                   self.movieLink = link
+                   
+                   let sb = UIStoryboard(name: "TMDB", bundle: nil)
+                   
+                   guard let vc = sb.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else { return }
+                   
+                   vc.destinationURL = self.movieLink
+                   
+                   DispatchQueue.main.async {
+                       self.TMDBCollectionView.reloadData()
+                       self.navigationController?.pushViewController(vc, animated: true)
+                   }
+               }
+       }
+    
+    
+}
 
 extension TMDBViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -73,7 +102,11 @@ extension TMDBViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let item = TMDBCollectionView.dequeueReusableCell(withReuseIdentifier: TMDBCollectionViewCell.identifier, for: indexPath) as? TMDBCollectionViewCell else { return TMDBCollectionViewCell() }
         
+        
         item.setData(indexPath: indexPath, list: TMDBViewController.listStruct)
+        
+        
+        
         return item
     }
 }
@@ -87,14 +120,12 @@ extension TMDBViewController: UICollectionViewDataSourcePrefetching {
             print(totalCount)
             UserDefaults.standard.set(indexPath[1], forKey: "pageNum")
             print(UserDefaults.standard.integer(forKey: "pageNum"))
-
+            
             if (TMDBViewController.listStruct.count - 1 == indexPath.item)  && (TMDBViewController.listStruct.count < totalCount) {
                 page += 20
                 fetchImage()
-
+                
             }
-//            UserDefaults.standard.set(indexPaths[1], forKey: "page")
-//            print(UserDefaults.standard.integer(forKey: "page"))
         }
-}
+    }
 }

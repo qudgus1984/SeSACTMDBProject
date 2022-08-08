@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		2FACA0B7289E75690066AF89 /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */; };
 		2FACA0B8289E75690066AF89 /* HeaderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */; };
-		2FACA0BB289E958A0066AF89 /* ImageHeaderAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FACA0BA289E958A0066AF89 /* ImageHeaderAPIManager.swift */; };
 		2FACA0BE28A000F30066AF89 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FACA0BD28A000F30066AF89 /* Web.storyboard */; };
 		2FACA0C028A0016C0066AF89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FACA0BF28A0016C0066AF89 /* WebViewController.swift */; };
-		2FACA0C228A00EA00066AF89 /* SearchingYouTubeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FACA0C128A00EA00066AF89 /* SearchingYouTubeManager.swift */; };
 		2FAE3390289B9A7000C6E131 /* TMDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FAE338F289B9A7000C6E131 /* TMDB.storyboard */; };
 		2FAE3392289B9C1600C6E131 /* TMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3391289B9C1600C6E131 /* TMDBViewController.swift */; };
 		2FAE3395289B9C3300C6E131 /* TMDBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAE3393289B9C3300C6E131 /* TMDBCollectionViewCell.swift */; };
@@ -40,10 +38,8 @@
 /* Begin PBXFileReference section */
 		2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCellTableViewCell.xib; sourceTree = "<group>"; };
-		2FACA0BA289E958A0066AF89 /* ImageHeaderAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHeaderAPIManager.swift; sourceTree = "<group>"; };
 		2FACA0BD28A000F30066AF89 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
 		2FACA0BF28A0016C0066AF89 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		2FACA0C128A00EA00066AF89 /* SearchingYouTubeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingYouTubeManager.swift; sourceTree = "<group>"; };
 		2FAE338F289B9A7000C6E131 /* TMDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TMDB.storyboard; sourceTree = "<group>"; };
 		2FAE3391289B9C1600C6E131 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
 		2FAE3393289B9C3300C6E131 /* TMDBCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -96,8 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				2FB57476289D30AD008A7B55 /* ImageTMDBAPIManager.swift */,
-				2FACA0BA289E958A0066AF89 /* ImageHeaderAPIManager.swift */,
-				2FACA0C128A00EA00066AF89 /* SearchingYouTubeManager.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -284,10 +278,8 @@
 				2FB57475289D09A4008A7B55 /* HeaderViewController.swift in Sources */,
 				2FACA0B7289E75690066AF89 /* HeaderCellTableViewCell.swift in Sources */,
 				2FB57477289D30AD008A7B55 /* ImageTMDBAPIManager.swift in Sources */,
-				2FACA0BB289E958A0066AF89 /* ImageHeaderAPIManager.swift in Sources */,
 				2FACA0C028A0016C0066AF89 /* WebViewController.swift in Sources */,
 				2FAE3395289B9C3300C6E131 /* TMDBCollectionViewCell.swift in Sources */,
-				2FACA0C228A00EA00066AF89 /* SearchingYouTubeManager.swift in Sources */,
 				2FD3174E2899F6C200882863 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

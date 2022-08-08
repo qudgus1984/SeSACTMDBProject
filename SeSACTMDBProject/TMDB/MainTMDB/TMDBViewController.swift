@@ -15,34 +15,78 @@ class TMDBViewController: UIViewController {
     
     @IBOutlet weak var TMDBCollectionView: UICollectionView!
     
-    static var listStruct: [TMDBList] = []
-    var listStruct2 : [TMDBList] = []
+    var movieData: [Movie] = []
     var page = 1
     var totalCount = 0
-    static var movieIDChoice : [Int] = []
     
     var movieLink: String = ""
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        TMDBCollectionView.register(UINib(nibName: TMDBCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TMDBCollectionViewCell.identifier)
-        
         TMDBCollectionView.prefetchDataSource = self
         TMDBCollectionView.delegate = self
         TMDBCollectionView.dataSource = self
-        fetchImage()
+        
+        TMDBCollectionView.register(UINib(nibName: TMDBCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TMDBCollectionViewCell.identifier)
+        
         CellLayout()
         
     }
+    func fetchMovieByAPIManager(page: Int) {
+        APIManager.shared.fetchMovie(page: page) { json in
+            
+            for movie in json["results"].arrayValue {
+                
+                let title = movie["title"].stringValue
+                let release = movie["release_date"].stringValue
+                let overview = movie["overview"].stringValue
+                let backImage = EndPoint.imageURL + movie["backdrop_path"].stringValue
+                let posterImage = EndPoint.imageURL + movie["poster_path"].stringValue
+                let vote = movie["vote_average"].doubleValue
+                let movieId = movie["id"].intValue
+                let genreid = movie["genre_ids"][0].intValue
+                
+                print("현재 페이지 \(self.page)")
+                print("영화 제목 \(title)")
+                
+                let data = Movie(title: title, release: release, overview: overview, image: backImage, vote: vote, poster: posterImage, movieid: movieId, genreid: genreid)
+                
+                self.movieData.append(data)
+                // self.MainCollectionView.reloadData()
+                
+                print("json 타이틀: \(title)")
+                print("data 타이틀: \(data.title)")
+                print("movieID: \(movieId)")
+                print("genreID: \(genreid)")
+                
+                print("data 갯수: \(self.movieData.count)")
+                print("================")
+                
+            }
+        }
+    }
     
     func fetchVideoByAPIManager(id: Int) {
-        ImageTMDBAPIManager.shared.fetchVideo(id: id) { json in
+        APIManager.shared.fetchVideo(id: id) { json in
             let key = json["results"][0]["key"].stringValue
             self.transitionWithKeyValue(key: key)
         }
+    }
+    
+    func collectionViewLayout() {
+        let layout = UICollectionViewFlowLayout()
+        let spacing: CGFloat = 5
+        let itemCount: CGFloat = 1
+        
+        let width = (UIScreen.main.bounds.width - spacing * (itemCount + 1)) / itemCount
+        layout.itemSize = CGSize(width: width, height: width)
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        
+        TMDBCollectionView.collectionViewLayout = layout
     }
     
     func transitionWithKeyValue(key: String) {
@@ -56,7 +100,7 @@ class TMDBViewController: UIViewController {
     }
     
     @objc func clickedLinkButton(sender: UIButton) {
-        let id = 698948
+        let id = movieData[sender.tag].movieid
         
         fetchVideoByAPIManager(id: id)
     }
@@ -74,60 +118,43 @@ class TMDBViewController: UIViewController {
         
         TMDBCollectionView.collectionViewLayout = layout
     }
+}
+
+
+extension TMDBViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
     
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sb = UIStoryboard(name: "Header", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "HeaderViewController") as! HeaderViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func fetchImage() {
-        ImageTMDBAPIManager.shared.fetchTMDB(page: page) { totalCount, list in
-            self.totalCount = totalCount
-            self.listStruct2 = list
-            
-            self.TMDBCollectionView.reloadData()
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if movieData.count - 1 == indexPath.item && movieData.count < totalCount {
+                page += 1
+                
+                fetchMovieByAPIManager(page: page)
+            }
         }
     }
     
-}
-
-extension TMDBViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return TMDBViewController.listStruct.count
+        return movieData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let item = TMDBCollectionView.dequeueReusableCell(withReuseIdentifier: TMDBCollectionViewCell.identifier, for: indexPath) as? TMDBCollectionViewCell else { return TMDBCollectionViewCell() }
+        guard let cell = TMDBCollectionView.dequeueReusableCell(withReuseIdentifier: "TMDBCollectionViewCell", for: indexPath) as? TMDBCollectionViewCell else { return UICollectionViewCell() }
         
+        cell.configCell(data: movieData[indexPath.row])
         
-        item.setData(indexPath: indexPath, list: TMDBViewController.listStruct)
+        cell.linkButton.tag = indexPath.row
+        cell.linkButton.addTarget(self, action: #selector(clickedLinkButton), for: .touchUpInside)
         
-        item.linkButton.tag = indexPath.row
-        item.linkButton.addTarget(self, action: #selector(clickedLinkButton), for: .touchUpInside)
-        
-        
-        
-        return item
+        return cell
     }
-}
-
-extension TMDBViewController: UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Header", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "HeaderViewController") as? HeaderViewController else { return }
         
-        for indexPath in indexPaths {
-            print(page)
-            print(TMDBViewController.listStruct.count)
-            print(totalCount)
-
-            
-            if (TMDBViewController.listStruct.count - 1 == indexPath.item)  && (TMDBViewController.listStruct.count < totalCount) {
-                page += 20
-                fetchImage()
-                
-            }
-        }
+        vc.movieData = movieData[indexPath.row]
+        
+        navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

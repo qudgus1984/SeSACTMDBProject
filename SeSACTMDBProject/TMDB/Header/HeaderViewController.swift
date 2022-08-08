@@ -3,27 +3,24 @@
 //  SeSACTMDBProject
 //
 //  Created by 이병현 on 2022/08/05.
-//
+
 
 import UIKit
 
 import Alamofire
 import SwiftyJSON
 import Kingfisher
-import SwiftUI
 
 class HeaderViewController: UIViewController {
-    
-    var castDataList: [HeaderCast] = []
-    static var structHeaderList: [HeaderList] = []
-    var structHeaderList2: [HeaderList] = []
-
     
     @IBOutlet weak var HeaderTableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var overViewTextView: UITextView!
+    
+    var movieData: Movie?
+    var crewInfo: [Crew] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,88 +32,85 @@ class HeaderViewController: UIViewController {
         HeaderTableView.delegate = self
         
         HeaderTableView.register(UINib(nibName: HeaderCellTableViewCell.HeaderIdentifier, bundle: nil), forCellReuseIdentifier: HeaderCellTableViewCell.HeaderIdentifier)
-                
-        HeaderTableView.rowHeight = 150
         
-        fetchImage()
-        headerDetail()
+        
+        viewLayout()
+        loadData()
+        
+        guard let movieData = movieData else { return }
+        fetchCastCrewByAPIManager(moiveID: movieData.movieid)
     }
     
     @objc func cancelButton() {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func fetchImage() {
-        let url = EndPoint.TMDBURL + "api_key=\(APIKey.TMDBKey)&page=\(UserDefaults.standard.integer(forKey: "pageNum"))"
-        
-        AF.request(url, method: .get).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
+    func fetchCastCrewByAPIManager(moiveID: Int) {
+        APIManager.shared.fetchCastCrew(movieId: moiveID) { json in
+            
+            
+            for crew in json["crew"].arrayValue {
+                let name = crew["name"].stringValue
+                let job = crew["job"].stringValue
+                let profile = EndPoint.imageURL + crew["profile_path"].stringValue
                 
-                for Header in json["results"].arrayValue {
-                    
-                    let posterImageURL = URL(string: EndPoint.imageURL + Header["poster_path"].stringValue)
-                    self.posterImageView.kf.setImage(with: posterImageURL)
-                    let backgroundImageURL = URL(string: EndPoint.imageURL + Header["backdrop_path"].stringValue)
-                    self.backgroundImageView.kf.setImage(with: backgroundImageURL)
-                    self.titleLabel.text = Header["title"].stringValue
-                    self.overViewTextView.text = Header["overview"].stringValue
-
-                }
-                
-            case .failure(let error):
-                print(error)
+                let data = Crew(name: name, job: job, profile_path: profile)
+                self.crewInfo.append(data)
+                print("====== crew name: \(name) ======")
             }
             
+            self.HeaderTableView.reloadData()
+            print("====== crew 배열 count: \(self.crewInfo.count) ======")
         }
     }
     
-    
-    
-    func headerDetail() {
-        let url = "https://api.themoviedb.org/3/movie/\(TMDBViewController.movieIDChoice[UserDefaults.standard.integer(forKey: "pageNum")-1])/credits?api_key=\(APIKey.TMDBKey)&language=en-US"
-        AF.request(url, method: .get ).validate(statusCode: 200...500).responseData { [self] response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                for item in json["crew"].arrayValue{
-                    let data = HeaderCast(name: item["name"].stringValue, characterName: item["job"].stringValue, profilePath: item["profile_path"].stringValue)
-                    
-                    castDataList.append(data)
-                }
-                HeaderTableView.reloadData()
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
+    //MARK: - layout 및 초기 데이터 가져오기
+    func viewLayout() {
+        
+        
+        posterImageView.layer.borderWidth = 1
+        posterImageView.layer.borderColor = UIColor.systemGray.cgColor
+        posterImageView.layer.cornerRadius = 5
+        
+        titleLabel.font = .systemFont(ofSize: 25, weight: .bold)
+        titleLabel.textColor = .white
+        
     }
     
-    
-    
+    func loadData() {
+        
+        guard let movieData = movieData else { return }
+        
+        title = movieData.title
+        
+        let url = URL(string: movieData.image)
+        backgroundImageView.kf.setImage(with: url)
+        backgroundImageView.contentMode = .scaleAspectFill
+        
+        let postUrl = URL(string: movieData.poster)
+        posterImageView.kf.setImage(with: postUrl)
+        posterImageView.contentMode = .scaleAspectFill
+        
+        titleLabel.text = movieData.title
+        
+    }
 }
 
+//MARK: - TableViewController 관련 Protocol 채택
 extension HeaderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return castDataList.count
+        return crewInfo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let item = HeaderTableView.dequeueReusableCell(withIdentifier: HeaderCellTableViewCell.HeaderIdentifier, for: indexPath) as? HeaderCellTableViewCell else { return HeaderCellTableViewCell() }
-        item.nameLabel.text = castDataList[indexPath.row].characterName
-        item.charactorLabel.text = castDataList[indexPath.row].name
+        guard let cell = HeaderTableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell", for: indexPath) as? HeaderCellTableViewCell else { return UITableViewCell() }
         
-        let imageURL = URL(string: EndPoint.imageURL+castDataList[indexPath.row].profilePath)
-        item.profileImageView.contentMode = .scaleAspectFit
-        item.profileImageView.kf.setImage(with: imageURL)
         
-        return item
+        cell.configCrewCell(data: crewInfo[indexPath.row])
         
+        return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
-    
 }
+
+
+

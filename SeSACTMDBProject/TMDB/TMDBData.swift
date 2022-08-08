@@ -8,28 +8,22 @@
 import Foundation
 
 
-struct TMDBList {
-    
-    let releaseDate: String
-    let genre: Int
-    let posterImage: String
-    let rate: Double
+struct Movie {
     let title: String
+    let release: String
     let overview: String
-    let movieId: Int
-    
+    let image: String
+    let vote: Double
+    let poster: String
+    let movieid: Int
+    let genreid: Int
 }
 
-struct HeaderCast {
-    var name: String
-    var characterName: String
-    var profilePath: String
+struct Crew {
     
-    init(name: String, characterName: String, profilePath: String) {
-        self.name = name
-        self.characterName = characterName
-        self.profilePath = profilePath
-    }
+    let name: String
+    let job: String
+    let profile_path: String
 }
 
 struct HeaderList {

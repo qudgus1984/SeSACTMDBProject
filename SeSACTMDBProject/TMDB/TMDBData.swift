@@ -16,6 +16,7 @@ struct TMDBList {
     let rate: Double
     let title: String
     let overview: String
+    let movieId: Int
     
 }
 

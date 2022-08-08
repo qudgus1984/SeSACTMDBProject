@@ -8,24 +8,31 @@
 import UIKit
 import WebKit
 
+import Alamofire
+import SwiftyJSON
+
 class WebViewController: UIViewController {
     
     
     @IBOutlet weak var webView: WKWebView!
     
-    var destinationURL: String?
+    var key: String?
     
     // MARK: - Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let url = destinationURL else { return }
-        openWebPage(url: url)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(dismissView))
+        guard let key = key else { return }
+        openWebPage(url: key)
+    }
+    @objc func dismissView() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func openWebPage(url: String) {
-        guard let url = URL(string: url) else {
+        let stringUrl = EndPoint.youtube + url
+        guard let url = URL(string: stringUrl) else {
             print("Invalid URL")
             return
         }
@@ -34,11 +41,4 @@ class WebViewController: UIViewController {
         webView.load(request)
     }
     
-}
-
-extension WebViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        openWebPage(url: destinationURL ?? "")
-    }
 }

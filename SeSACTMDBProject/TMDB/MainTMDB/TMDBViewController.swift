@@ -27,6 +27,7 @@ class TMDBViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         TMDBCollectionView.register(UINib(nibName: TMDBCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TMDBCollectionViewCell.identifier)
         
         TMDBCollectionView.prefetchDataSource = self
@@ -37,11 +38,29 @@ class TMDBViewController: UIViewController {
         
     }
     
-    @objc func moveToYouTube(sender: UIButton) {
-
-        fetchingMovieLinkData(num: TMDBViewController.movieIDChoice[UserDefaults.standard.integer(forKey: "pageNum")-1])
-
+    func fetchVideoByAPIManager(id: Int) {
+        ImageTMDBAPIManager.shared.fetchVideo(id: id) { json in
+            let key = json["results"][0]["key"].stringValue
+            self.transitionWithKeyValue(key: key)
+        }
     }
+    
+    func transitionWithKeyValue(key: String) {
+        let sb = UIStoryboard(name: "Web", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else { return }
+        
+        vc.key = key
+        
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true)
+    }
+    
+    @objc func clickedLinkButton(sender: UIButton) {
+        let id = 698948
+        
+        fetchVideoByAPIManager(id: id)
+    }
+    
     func CellLayout() {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 8
@@ -55,6 +74,7 @@ class TMDBViewController: UIViewController {
         
         TMDBCollectionView.collectionViewLayout = layout
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Header", bundle: nil)
@@ -71,26 +91,6 @@ class TMDBViewController: UIViewController {
         }
     }
     
-    func fetchingMovieLinkData(num : Int) {
-               
-               SearchingYouTubeManager.shared.fetchingMovieLinkData(movieID: num) { link in
-                   
-                   self.movieLink = link
-                   
-                   let sb = UIStoryboard(name: "TMDB", bundle: nil)
-                   
-                   guard let vc = sb.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else { return }
-                   
-                   vc.destinationURL = self.movieLink
-                   
-                   DispatchQueue.main.async {
-                       self.TMDBCollectionView.reloadData()
-                       self.navigationController?.pushViewController(vc, animated: true)
-                   }
-               }
-       }
-    
-    
 }
 
 extension TMDBViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -105,6 +105,9 @@ extension TMDBViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         item.setData(indexPath: indexPath, list: TMDBViewController.listStruct)
         
+        item.linkButton.tag = indexPath.row
+        item.linkButton.addTarget(self, action: #selector(clickedLinkButton), for: .touchUpInside)
+        
         
         
         return item
@@ -118,8 +121,7 @@ extension TMDBViewController: UICollectionViewDataSourcePrefetching {
             print(page)
             print(TMDBViewController.listStruct.count)
             print(totalCount)
-            UserDefaults.standard.set(indexPath[1], forKey: "pageNum")
-            print(UserDefaults.standard.integer(forKey: "pageNum"))
+
             
             if (TMDBViewController.listStruct.count - 1 == indexPath.item)  && (TMDBViewController.listStruct.count < totalCount) {
                 page += 20

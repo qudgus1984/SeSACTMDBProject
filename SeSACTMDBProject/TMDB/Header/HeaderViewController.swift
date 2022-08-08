@@ -20,13 +20,9 @@ class HeaderViewController: UIViewController {
 
     
     @IBOutlet weak var HeaderTableView: UITableView!
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var posterImageView: UIImageView!
-    
     @IBOutlet weak var backgroundImageView: UIImageView!
-    
     @IBOutlet weak var overViewTextView: UITextView!
     
     override func viewDidLoad() {
@@ -86,7 +82,7 @@ class HeaderViewController: UIViewController {
                 let json = JSON(value)
                 print("JSON: \(json)")
                 for item in json["crew"].arrayValue{
-                    let data = HeaderCast(name: item["original_name"].stringValue, characterName: item["name"].stringValue, profilePath: item["profile_path"].stringValue)
+                    let data = HeaderCast(name: item["name"].stringValue, characterName: item["job"].stringValue, profilePath: item["profile_path"].stringValue)
                     
                     castDataList.append(data)
                 }
@@ -109,8 +105,8 @@ extension HeaderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let item = HeaderTableView.dequeueReusableCell(withIdentifier: HeaderCellTableViewCell.HeaderIdentifier, for: indexPath) as? HeaderCellTableViewCell else { return HeaderCellTableViewCell() }
-        item.nameLabel.text = castDataList[indexPath.row].name
-        item.charactorLabel.text = castDataList[indexPath.row].characterName
+        item.nameLabel.text = castDataList[indexPath.row].characterName
+        item.charactorLabel.text = castDataList[indexPath.row].name
         
         let imageURL = URL(string: EndPoint.imageURL+castDataList[indexPath.row].profilePath)
         item.profileImageView.contentMode = .scaleAspectFit
@@ -120,7 +116,7 @@ extension HeaderViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 200
     }
     
 }

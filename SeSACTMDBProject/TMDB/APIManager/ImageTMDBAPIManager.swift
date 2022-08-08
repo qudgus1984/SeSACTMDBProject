@@ -27,6 +27,9 @@ class ImageTMDBAPIManager {
             case .success(let value):
                 let json = JSON(value)
                 
+                let pageNum = json["page"].intValue
+                UserDefaults.standard.set(pageNum, forKey: "pageNum")
+
                 for TMDB in json["results"].arrayValue {
                     
                     let imageUrl = EndPoint.imageURL + TMDB["poster_path"].stringValue
@@ -38,7 +41,7 @@ class ImageTMDBAPIManager {
                     let movieID = TMDB["id"].intValue
                     
                     
-                    let data = TMDBList(releaseDate: releaseDate, genre: genre, posterImage: imageUrl, rate: rate, title: title, overview: overview)
+                    let data = TMDBList(releaseDate: releaseDate, genre: genre, posterImage: imageUrl, rate: rate, title: title, overview: overview, movieId: movieID)
                     
                     TMDBViewController.movieIDChoice.append(movieID)
                     
@@ -54,6 +57,22 @@ class ImageTMDBAPIManager {
                 print(error)
             }
             
+        }
+    }
+    
+    func fetchVideo(id: Int, completionHandler: @escaping (JSON) -> ()) {
+        
+        let url = "\(EndPoint.TMDBURL)/\(id)/videos?api_key=\(APIKey.TMDBKey)"
+        AF.request(url, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+//                print("JSON: \(json)")
+                completionHandler(json)
+                
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

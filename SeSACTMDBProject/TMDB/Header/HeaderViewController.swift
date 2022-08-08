@@ -119,5 +119,8 @@ extension HeaderViewController: UITableViewDelegate, UITableViewDataSource {
         return item
         
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
     
 }

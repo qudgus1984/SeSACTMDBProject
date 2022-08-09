@@ -9,7 +9,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var mainTableView: UITableView!
     
     
     let numberList: [[Int]] = [
@@ -25,8 +26,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
         
         
     }
@@ -49,9 +50,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentCollectionView.delegate = self
         cell.contentCollectionView.dataSource = self
         cell.contentCollectionView.tag = indexPath.section
-        cell.contentCollectionView.register(UINib(nibName: "ImageCardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageCardCollectionViewCell")
-        cell.contentCollectionView.reloadData()
-        
+        cell.contentCollectionView.register(UINib(nibName: "CardCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CardCollectionViewCell")
         
         return cell
         
@@ -71,7 +70,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell else { return UICollectionViewCell() }
-        cell.imageCardView.cardImageView.backgroundColor = .yellow
         
         return cell
 

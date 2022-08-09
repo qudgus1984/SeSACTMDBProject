@@ -16,6 +16,11 @@ class MainTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
         setupUI()
     }
 
@@ -30,6 +35,7 @@ class MainTableViewCell: UITableViewCell {
     
     func collectionViewLayout() -> UICollectionViewFlowLayout{
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 100, height: 130)
         layout.minimumLineSpacing = 16
         layout.minimumInteritemSpacing = 16

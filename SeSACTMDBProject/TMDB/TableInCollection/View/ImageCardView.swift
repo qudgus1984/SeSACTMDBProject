@@ -24,7 +24,6 @@ class ImageCardView: UIView {
         let view = UINib(nibName: "ImageCardView", bundle: nil).instantiate(withOwner: self, options: nil).first as! UIView
         view.frame = bounds
         view.backgroundColor = .black
-        view.layer.cornerRadius = 10
         self.addSubview(view)
     }
     

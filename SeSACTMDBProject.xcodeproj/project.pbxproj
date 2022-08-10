@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FAB0A4E28A380D00074D87C /* CardAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB0A4D28A380D00074D87C /* CardAPIManager.swift */; };
 		2FACA0B7289E75690066AF89 /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */; };
 		2FACA0B8289E75690066AF89 /* HeaderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */; };
 		2FACA0BE28A000F30066AF89 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FACA0BD28A000F30066AF89 /* Web.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FAB0A4D28A380D00074D87C /* CardAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAPIManager.swift; sourceTree = "<group>"; };
 		2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCellTableViewCell.xib; sourceTree = "<group>"; };
 		2FACA0BD28A000F30066AF89 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
@@ -91,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FAB0A4C28A380B70074D87C /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				2FAB0A4D28A380D00074D87C /* CardAPIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
 		2FACA0B2289E74DB0066AF89 /* MainTMDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 		2FACE53E28A2708F005C6788 /* TableInCollection */ = {
 			isa = PBXGroup;
 			children = (
+				2FAB0A4C28A380B70074D87C /* APIManager */,
 				2FACE55B28A2907C005C6788 /* Collection */,
 				2FACE55628A27AE7005C6788 /* Main */,
 				2FACE55528A27AC3005C6788 /* Table */,
@@ -334,6 +345,7 @@
 			files = (
 				2FD317502899F6C200882863 /* ViewController.swift in Sources */,
 				2FAE3392289B9C1600C6E131 /* TMDBViewController.swift in Sources */,
+				2FAB0A4E28A380D00074D87C /* CardAPIManager.swift in Sources */,
 				2FAE33A9289BA77400C6E131 /* TMDBData.swift in Sources */,
 				2FD3174C2899F6C200882863 /* AppDelegate.swift in Sources */,
 				2FACE54428A273AE005C6788 /* MainTableViewCell.swift in Sources */,

@@ -25,7 +25,6 @@ class MainTableViewCell: UITableViewCell {
     }
 
     func setupUI() {
-        titleLabel.text = "넷플릭스 인기 콘텐츠"
         titleLabel.textColor = .white
         titleLabel.backgroundColor = .clear
         

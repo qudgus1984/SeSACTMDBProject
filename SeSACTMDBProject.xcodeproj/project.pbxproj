@@ -31,6 +31,8 @@
 		2FB57471289D0755008A7B55 /* Header.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FB57470289D0755008A7B55 /* Header.storyboard */; };
 		2FB57475289D09A4008A7B55 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB57474289D09A4008A7B55 /* HeaderViewController.swift */; };
 		2FB57477289D30AD008A7B55 /* ImageTMDBAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB57476289D30AD008A7B55 /* ImageTMDBAPIManager.swift */; };
+		2FB6D23A28A4E7D9003B9275 /* MapCinema.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FB6D23928A4E7D9003B9275 /* MapCinema.storyboard */; };
+		2FB6D23C28A4E921003B9275 /* MapCinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB6D23B28A4E921003B9275 /* MapCinemaViewController.swift */; };
 		2FD3174C2899F6C200882863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3174B2899F6C200882863 /* AppDelegate.swift */; };
 		2FD3174E2899F6C200882863 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3174D2899F6C200882863 /* SceneDelegate.swift */; };
 		2FD317502899F6C200882863 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3174F2899F6C200882863 /* ViewController.swift */; };
@@ -64,6 +66,8 @@
 		2FB57470289D0755008A7B55 /* Header.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Header.storyboard; sourceTree = "<group>"; };
 		2FB57474289D09A4008A7B55 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		2FB57476289D30AD008A7B55 /* ImageTMDBAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTMDBAPIManager.swift; sourceTree = "<group>"; };
+		2FB6D23928A4E7D9003B9275 /* MapCinema.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapCinema.storyboard; sourceTree = "<group>"; };
+		2FB6D23B28A4E921003B9275 /* MapCinemaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCinemaViewController.swift; sourceTree = "<group>"; };
 		2FD317482899F6C200882863 /* SeSACTMDBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACTMDBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD3174B2899F6C200882863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FD3174D2899F6C200882863 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +191,15 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		2FB6D23828A4E796003B9275 /* MapCinema */ = {
+			isa = PBXGroup;
+			children = (
+				2FB6D23928A4E7D9003B9275 /* MapCinema.storyboard */,
+				2FB6D23B28A4E921003B9275 /* MapCinemaViewController.swift */,
+			);
+			path = MapCinema;
+			sourceTree = "<group>";
+		};
 		2FD3173F2899F6C200882863 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +254,7 @@
 		2FD3176E289ACF7400882863 /* TMDB */ = {
 			isa = PBXGroup;
 			children = (
+				2FB6D23828A4E796003B9275 /* MapCinema */,
 				2FACE53E28A2708F005C6788 /* TableInCollection */,
 				2FACA0BC28A000D00066AF89 /* Web */,
 				2FACA0B9289E7E390066AF89 /* APIManager */,
@@ -322,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FACA0B8289E75690066AF89 /* HeaderCellTableViewCell.xib in Resources */,
+				2FB6D23A28A4E7D9003B9275 /* MapCinema.storyboard in Resources */,
 				2FACE54028A270B4005C6788 /* MainView.storyboard in Resources */,
 				2FD317602899F7D300882863 /* .gitignore in Resources */,
 				2FD317582899F6C200882863 /* LaunchScreen.storyboard in Resources */,
@@ -354,6 +369,7 @@
 				2FD3176B2899FACC00882863 /* Example2.swift in Sources */,
 				2FACE55E28A2909A005C6788 /* CardCollectionViewCell.swift in Sources */,
 				2FD317622899F83E00882863 /* SearchViewController.swift in Sources */,
+				2FB6D23C28A4E921003B9275 /* MapCinemaViewController.swift in Sources */,
 				2FACE54228A270DD005C6788 /* MainViewController.swift in Sources */,
 				2FB57475289D09A4008A7B55 /* HeaderViewController.swift in Sources */,
 				2FACA0B7289E75690066AF89 /* HeaderCellTableViewCell.swift in Sources */,

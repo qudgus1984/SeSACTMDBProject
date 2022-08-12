@@ -12,7 +12,7 @@ class APIManager {
     //MARK: - Main 네트워크 통신
     func fetchMovie(page: Int, completionHandler: @escaping (JSON) -> ()) {
         
-        let url = "\(EndPoint.TMDBURL)?api_key=\(APIKey.TMDBKey)&page=\(page)"
+        let url = "\(EndPoint.TMDBURL)api_key=\(APIKey.TMDBKey)"
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -26,6 +26,21 @@ class APIManager {
         }
     }
     
+    func fetchGenre(completionHandler: @escaping (JSON) -> ()) {
+        
+        let url = "\(EndPoint.genre)?api_key=\(APIKey.TMDBKey)"
+        AF.request(url, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                //print("JSON: \(json)")
+                completionHandler(json)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     func fetchVideo(id: Int, completionHandler: @escaping (JSON) -> ()) {
         

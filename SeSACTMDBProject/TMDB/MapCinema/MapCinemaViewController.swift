@@ -67,7 +67,7 @@ class MapCinemaViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //showRequestLocationServiceAlert()
+        showRequestLocationServiceAlert()
         
     }
     

@@ -1,8 +1,0 @@
-//
-//  Example2.swift
-//  SeSACTMDBProject
-//
-//  Created by 이병현 on 2022/08/03.
-//
-
-import Foundation

@@ -15,7 +15,7 @@ import Kingfisher
 class MainTMDBViewController: UIViewController {
     
     var movieData: [Movie] = []
-    var page = 1
+    var currentPage = 1
     let totalPage = 1000
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -31,12 +31,13 @@ class MainTMDBViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: MainTMDBCollectionViewCell.reuseIdentifier)
         
         collectionViewLayout()
-        fetchMovieByAPIManager(page: page)
+        fetchMovieByAPIManager()
+        print("===\(currentPage)")
         
     }
     
-    func fetchMovieByAPIManager(page: Int) {
-        APIManager.shared.fetchMovie(page: page) { json in
+    func fetchMovieByAPIManager() {
+        APIManager.shared.fetchMovie(page: currentPage) { json in
             for movie in json["results"].arrayValue {
                 
                 let title = movie["title"].stringValue
@@ -53,8 +54,8 @@ class MainTMDBViewController: UIViewController {
                 self.movieData.append(data)
                 
                 print(self.movieData)
-                self.collectionView.reloadData()
             }
+            self.collectionView.reloadData()
         }
     }
     
@@ -79,10 +80,12 @@ extension MainTMDBViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             if movieData.count - 1 == indexPath.item && movieData.count < totalPage {
-                page += 1
-                
-                fetchMovieByAPIManager(page: page)
+                currentPage += 1
+                fetchMovieByAPIManager()
             }
+            print("===\(currentPage)")
+
+            print("===\(indexPaths)")
         }
     }
     

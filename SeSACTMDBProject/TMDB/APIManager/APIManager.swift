@@ -12,12 +12,12 @@ class APIManager {
     //MARK: - Main 네트워크 통신
     func fetchMovie(page: Int, completionHandler: @escaping (JSON) -> ()) {
         
-        let url = "\(EndPoint.TMDBURL)api_key=\(APIKey.TMDBKey)"
+        let url = "\(EndPoint.TMDBURL)api_key=\(APIKey.TMDBKey)&page=\(page)"
         AF.request(url, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                //print("JSON: \(json)")
+                print("JSON: \(json)")
                 completionHandler(json)
                 
             case .failure(let error):

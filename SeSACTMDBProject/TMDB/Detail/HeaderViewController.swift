@@ -31,7 +31,7 @@ class HeaderViewController: UIViewController {
         HeaderTableView.dataSource = self
         HeaderTableView.delegate = self
         
-        HeaderTableView.register(UINib(nibName: HeaderCellTableViewCell.HeaderIdentifier, bundle: nil), forCellReuseIdentifier: HeaderCellTableViewCell.HeaderIdentifier)
+        HeaderTableView.register(UINib(nibName: HeaderTableViewCell.HeaderIdentifier, bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.HeaderIdentifier)
         
         
         viewLayout()
@@ -47,6 +47,8 @@ class HeaderViewController: UIViewController {
     
     func fetchCastCrewByAPIManager(moiveID: Int) {
         APIManager.shared.fetchCastCrew(movieId: moiveID) { json in
+            
+            self.overViewTextView.text = self.movieData?.overview
             
             
             for crew in json["crew"].arrayValue {
@@ -103,12 +105,15 @@ extension HeaderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = HeaderTableView.dequeueReusableCell(withIdentifier: "HeaderCellTableViewCell", for: indexPath) as? HeaderCellTableViewCell else { return UITableViewCell() }
+        guard let cell = HeaderTableView.dequeueReusableCell(withIdentifier: "HeaderTableViewCell", for: indexPath) as? HeaderTableViewCell else { return UITableViewCell() }
         
         
         cell.configCrewCell(data: crewInfo[indexPath.row])
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
     }
 }
 

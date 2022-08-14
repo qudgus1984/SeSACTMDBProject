@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2FAB0A4E28A380D00074D87C /* CardAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB0A4D28A380D00074D87C /* CardAPIManager.swift */; };
-		2FACA0B7289E75690066AF89 /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */; };
-		2FACA0B8289E75690066AF89 /* HeaderCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */; };
 		2FACA0BE28A000F30066AF89 /* Web.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FACA0BD28A000F30066AF89 /* Web.storyboard */; };
 		2FACA0C028A0016C0066AF89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FACA0BF28A0016C0066AF89 /* WebViewController.swift */; };
 		2FACE54028A270B4005C6788 /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FACE53F28A270B4005C6788 /* MainView.storyboard */; };
@@ -34,6 +32,8 @@
 		2FB6D24828A526B1003B9275 /* MainTMDBCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB6D24628A526B1003B9275 /* MainTMDBCollectionViewCell.xib */; };
 		2FB6D24A28A526C5003B9275 /* MainTMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB6D24928A526C5003B9275 /* MainTMDBViewController.swift */; };
 		2FCC1CC028A63FCD00E24B45 /* ProtocolReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1CBF28A63FCD00E24B45 /* ProtocolReusable.swift */; };
+		2FCC1D2F28A907CD00E24B45 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCC1D2D28A907CD00E24B45 /* HeaderTableViewCell.swift */; };
+		2FCC1D3028A907CD00E24B45 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FCC1D2E28A907CD00E24B45 /* HeaderTableViewCell.xib */; };
 		2FD3174C2899F6C200882863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3174B2899F6C200882863 /* AppDelegate.swift */; };
 		2FD3174E2899F6C200882863 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3174D2899F6C200882863 /* SceneDelegate.swift */; };
 		2FD317502899F6C200882863 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD3174F2899F6C200882863 /* ViewController.swift */; };
@@ -46,8 +46,6 @@
 
 /* Begin PBXFileReference section */
 		2FAB0A4D28A380D00074D87C /* CardAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAPIManager.swift; sourceTree = "<group>"; };
-		2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
-		2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCellTableViewCell.xib; sourceTree = "<group>"; };
 		2FACA0BD28A000F30066AF89 /* Web.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Web.storyboard; sourceTree = "<group>"; };
 		2FACA0BF28A0016C0066AF89 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2FACE53F28A270B4005C6788 /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
@@ -68,6 +66,8 @@
 		2FB6D24628A526B1003B9275 /* MainTMDBCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTMDBCollectionViewCell.xib; sourceTree = "<group>"; };
 		2FB6D24928A526C5003B9275 /* MainTMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTMDBViewController.swift; sourceTree = "<group>"; };
 		2FCC1CBF28A63FCD00E24B45 /* ProtocolReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolReusable.swift; sourceTree = "<group>"; };
+		2FCC1D2D28A907CD00E24B45 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		2FCC1D2E28A907CD00E24B45 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		2FD317482899F6C200882863 /* SeSACTMDBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACTMDBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD3174B2899F6C200882863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FD3174D2899F6C200882863 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,8 +183,8 @@
 			children = (
 				2FB57470289D0755008A7B55 /* Header.storyboard */,
 				2FB57474289D09A4008A7B55 /* HeaderViewController.swift */,
-				2FACA0B5289E75690066AF89 /* HeaderCellTableViewCell.swift */,
-				2FACA0B6289E75690066AF89 /* HeaderCellTableViewCell.xib */,
+				2FCC1D2D28A907CD00E24B45 /* HeaderTableViewCell.swift */,
+				2FCC1D2E28A907CD00E24B45 /* HeaderTableViewCell.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -332,7 +332,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FACA0B8289E75690066AF89 /* HeaderCellTableViewCell.xib in Resources */,
 				2FB6D23A28A4E7D9003B9275 /* MapCinema.storyboard in Resources */,
 				2FACE54028A270B4005C6788 /* MainView.storyboard in Resources */,
 				2FD317602899F7D300882863 /* .gitignore in Resources */,
@@ -340,6 +339,7 @@
 				2FACE55F28A2909A005C6788 /* CardCollectionViewCell.xib in Resources */,
 				2FB6D24828A526B1003B9275 /* MainTMDBCollectionViewCell.xib in Resources */,
 				2FB6D24428A525FF003B9275 /* MainTMDB.storyboard in Resources */,
+				2FCC1D3028A907CD00E24B45 /* HeaderTableViewCell.xib in Resources */,
 				2FD317552899F6C200882863 /* Assets.xcassets in Resources */,
 				2FB57471289D0755008A7B55 /* Header.storyboard in Resources */,
 				2FACE54E28A27778005C6788 /* ImageCardView.xib in Resources */,
@@ -365,9 +365,9 @@
 				2FB6D24A28A526C5003B9275 /* MainTMDBViewController.swift in Sources */,
 				2FACE55E28A2909A005C6788 /* CardCollectionViewCell.swift in Sources */,
 				2FB6D23C28A4E921003B9275 /* MapCinemaViewController.swift in Sources */,
+				2FCC1D2F28A907CD00E24B45 /* HeaderTableViewCell.swift in Sources */,
 				2FACE54228A270DD005C6788 /* MainViewController.swift in Sources */,
 				2FB57475289D09A4008A7B55 /* HeaderViewController.swift in Sources */,
-				2FACA0B7289E75690066AF89 /* HeaderCellTableViewCell.swift in Sources */,
 				2FB57477289D30AD008A7B55 /* APIManager.swift in Sources */,
 				2FB6D24728A526B1003B9275 /* MainTMDBCollectionViewCell.swift in Sources */,
 				2FACA0C028A0016C0066AF89 /* WebViewController.swift in Sources */,

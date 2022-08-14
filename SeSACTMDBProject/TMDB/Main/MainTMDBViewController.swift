@@ -68,6 +68,30 @@ class MainTMDBViewController: UIViewController {
         }
     }
     
+    func fetchVideoByAPIManager(id: Int) {
+        APIManager.shared.fetchVideo(id: id) { json in
+            let key = json["results"][0]["key"].stringValue
+            self.transitionWithKeyValue(key: key)
+            
+        }
+    }
+    
+    func transitionWithKeyValue(key: String) {
+        let sb = UIStoryboard(name: "Web", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else { return }
+        
+        vc.key = key
+        
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true)
+    }
+    
+    @objc func clickedLinkButton(sender: UIButton) {
+        let id = movieData[sender.tag].movieid
+        
+        fetchVideoByAPIManager(id: id)
+    }
+    
     func collectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 5
@@ -109,6 +133,9 @@ extension MainTMDBViewController: UICollectionViewDelegate, UICollectionViewData
         
         cell.configCell(data: movieData[indexPath.row])
         print("####", #function, movieData[indexPath.row])
+        
+        cell.linkButton.tag = indexPath.row
+        cell.linkButton.addTarget(self, action: #selector(clickedLinkButton), for: .touchUpInside)
         return cell
         
     }

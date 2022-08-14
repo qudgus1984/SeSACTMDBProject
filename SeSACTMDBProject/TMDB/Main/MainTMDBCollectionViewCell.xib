@@ -94,6 +94,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fB-Z9-Ua9">
                                         <rect key="frame" x="20" y="76" width="591" height="1"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="prI-Ki-o8c"/>
                                         </constraints>
@@ -172,10 +173,12 @@
                 <outlet property="dataLabel" destination="eIA-FG-ZA2" id="oPi-fH-hz1"/>
                 <outlet property="genreLabel" destination="r4k-fr-8U0" id="fFo-oF-h0b"/>
                 <outlet property="inView" destination="Asn-f7-nda" id="r94-Jg-XrX"/>
+                <outlet property="lineView" destination="5fB-Z9-Ua9" id="ZP4-pU-3RA"/>
                 <outlet property="linkButton" destination="FGf-zh-NIc" id="3kl-Ue-1lV"/>
                 <outlet property="overViewLabel" destination="uEv-nC-Oox" id="Saa-yL-Dmh"/>
                 <outlet property="posterImageView" destination="5l2-CL-X3L" id="bEM-bC-6Gr"/>
                 <outlet property="titleLabel" destination="ISg-Go-Aak" id="llI-d2-BLg"/>
+                <outlet property="vateTitleLabel" destination="p7n-QE-ZCE" id="Ogt-pf-k9x"/>
                 <outlet property="voteLabel" destination="huG-8X-5Lm" id="OgH-Rd-pVx"/>
             </connections>
             <point key="canvasLocation" x="581.8840579710145" y="247.43303571428569"/>

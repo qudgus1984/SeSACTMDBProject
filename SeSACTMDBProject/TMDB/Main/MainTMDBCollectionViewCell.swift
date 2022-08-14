@@ -10,11 +10,13 @@ import UIKit
 class MainTMDBCollectionViewCell: UICollectionViewCell, ReusableViewProtocol {
     static var reuseIdentifier = "MainTMDBCollectionViewCell"
     
+    @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var inView: UIView!
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var linkButton: UIButton!
     @IBOutlet weak var voteLabel: UILabel!
+    @IBOutlet weak var vateTitleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overViewLabel: UILabel!
@@ -30,7 +32,8 @@ class MainTMDBCollectionViewCell: UICollectionViewCell, ReusableViewProtocol {
         //        guard let newDate = date.date(from: data.release)
         dataLabel.text = data.release
         
-        voteLabel.text = String(Int(data.vote))
+        voteLabel.text = " "+String(format: "%.1f", Double(data.vote))+" "
+        vateTitleLabel.text = " 평점 "
         titleLabel.text = data.title
         overViewLabel.text = data.overview
         
@@ -55,9 +58,14 @@ class MainTMDBCollectionViewCell: UICollectionViewCell, ReusableViewProtocol {
         overViewLabel.font = .systemFont(ofSize: 17)
         overViewLabel.textColor = .darkGray
         
+        lineView.layer.borderWidth = 1
         
+        voteLabel.font = .systemFont(ofSize: 12)
+        voteLabel.backgroundColor = .white
         
-        voteLabel.font = .systemFont(ofSize: 14)
+        vateTitleLabel.font = .systemFont(ofSize: 12)
+        vateTitleLabel.backgroundColor = .purple
+        
         
         linkButton.tintColor = .white
         

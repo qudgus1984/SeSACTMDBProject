@@ -67,7 +67,6 @@ class MapCinemaViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        showRequestLocationServiceAlert()
         
     }
     
@@ -192,6 +191,8 @@ extension MapCinemaViewController {
             
         case .restricted, .denied:
             print("DENIED, 아이폰 설정으로 유도")
+            showRequestLocationServiceAlert()
+
         case .authorizedWhenInUse:
             print("WHEN IN USE")
             // 사용자가 위치를 허용해둔 상태라면, startUpdatingLocation을 통해 didUpdateLocations 메서드가 실행

@@ -34,6 +34,15 @@ class MainTMDBViewController: UIViewController {
         fetchMovieByAPIManager()
         print("===\(currentPage)")
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "location.fill"), style: .plain, target: self, action: #selector(cinemaButtonClicked))
+
+    }
+    
+    @objc func cinemaButtonClicked(_ sender: UIButton) {
+        // 검색화면 UIVC
+        let sb = UIStoryboard(name: "MapCinema", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MapCinemaViewController") as! MapCinemaViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func fetchMovieByAPIManager() {
@@ -72,6 +81,7 @@ class MainTMDBViewController: UIViewController {
         
         collectionView.collectionViewLayout = layout
     }
+    
     
 }
 

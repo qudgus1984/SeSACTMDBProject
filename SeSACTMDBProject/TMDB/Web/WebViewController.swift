@@ -11,6 +11,7 @@ import WebKit
 import Alamofire
 import SwiftyJSON
 
+
 class WebViewController: UIViewController {
     
     
@@ -22,6 +23,7 @@ class WebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(dismissView))
         guard let key = key else { return }
         openWebPage(url: key)

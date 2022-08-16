@@ -11,6 +11,8 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 
+import TMDBCustomFramework
+
 
 class MainTMDBViewController: UIViewController {
     
@@ -22,6 +24,8 @@ class MainTMDBViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("=============\(UserDefaults.standard.bool(forKey: "First"))")
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -35,13 +39,31 @@ class MainTMDBViewController: UIViewController {
         print("===\(currentPage)")
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "location.fill"), style: .plain, target: self, action: #selector(cinemaButtonClicked))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ticket.fill"), style: .plain, target: self, action: #selector(alertButtonClicked))
+        
+        
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        showAlert(title: "Framework의 Alert입니다", message: "Framework", buttonTitle: "확인") { _ in
+//            self.view.backgroundColor = .lightGray
+//        }
     }
     
     @objc func cinemaButtonClicked(_ sender: UIButton) {
         // 검색화면 UIVC
         let sb = UIStoryboard(name: "MapCinema", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "MapCinemaViewController") as! MapCinemaViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func alertButtonClicked (_ sender: UIButton) {
+        let sb = UIStoryboard(name: "MainView", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
